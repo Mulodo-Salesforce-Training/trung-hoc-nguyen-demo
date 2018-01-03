@@ -1,23 +1,23 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <Package xmlns="http://soap.sforce.com/2006/04/metadata">
     <types>
-        <members>BookExtension</members>
-        <members>CollectionExample</members>
+        <members>*</members>
         <name>ApexClass</name>
     </types>
     <types>
-        <members>AccountRemoterCC</members>
-        <members>AnswersHome</members>
+        <members>*</members>
+        <name>ApexComponent</name>
+    </types>
+    <types>
+        <members>*</members>
         <name>ApexPage</name>
     </types>
     <types>
-        <members>Account</members>
-        <members>Boat__c</members>
-        <name>CustomObject</name>
+        <members>*</members>
+        <name>ApexTrigger</name>
     </types>
     <types>
-        <members>AngularJS</members>
-        <members>ExamDataSecurity</members>
+        <members>*</members>
         <name>StaticResource</name>
     </types>
     <version>36.0</version>

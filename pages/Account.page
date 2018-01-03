@@ -1,0 +1,670 @@
+<apex:page controller="tstpopup" showHeader="true" standardStylesheets="false" sidebar="true" applyHtmlTag="true" applyBodyTag="true" docType="html-5.0">
+    <html xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" lang="en">
+        <head>
+            <style type="text/css">
+            @charset "UTF-8";
+            .slds label ,.slds input,.slds select ,.slds h1 ,.slds h2 ,.slds span ,.slds .rich-tab-header {
+            font-family:"Salesforce Sans", Arial,"メイリオ", sans-serif !important;
+            }
+            .slds .rich-tab-bottom-line table ,.slds table.tableOperator {
+            width : inherit;
+            }
+            .slds td.rich-tab-inactive{
+            line-height: 2rem;
+            /*  color: #54698d;
+            background: #f4f6f9;*/
+            padding: 3px 10px 4px;
+            }
+            .slds td.rich-tab-active{
+            line-height: 2rem;
+            /*  color: #0070d2;
+            border-color: #d8dde6;
+            background: #ffffff;*/
+            padding: 3px 10px 4px;
+            }
+            .bPageBlock {
+            border-top: 3px solid purple !important;
+            }
+            .slds .sveTabColorBlueActive,.slds-input.sveTabColorBlueInActive {
+            background-image: none;
+            }
+            
+           
+            .activeTab {
+            background-color: #1797C0;
+            font-weight: bold;
+            box-shadow: 5px 5px 2px #888888;
+            color: #FFFFFF !important;
+            font-size: 12px;
+            height: 25px;
+            cursor: pointer;
+            border: 0px solid #FFFFFF !important;
+            background-image: none;
+            
+            }
+            .inactiveTab {
+            background-color: #e2f1f6;
+            font-weight: bold;
+            color: #000000 !important;
+            font-size: 12px;
+            height: 25px;
+            cursor: pointer;
+            border: 0px;
+            border-radius: 1px;
+            background-image: none;
+            
+            }
+
+            .main-content {
+                padding: auto;
+                width: 98%;
+                margin: 5px auto;
+            }
+            /*.rich-tabpanel img[src="/faces/a4j/g/3_3_3.Finalorg/richfaces/renderkit/html/images/spacer.gif"] {
+            display: none;
+            }*/
+
+            table.rich-tabpanel table td:first-child img[src="/faces/a4j/g/3_3_3.Finalorg/richfaces/renderkit/html/images/spacer.gif"]{
+                display: none;
+            }
+
+            table.rich-tabpanel table td:last-child img[src="/faces/a4j/g/3_3_3.Finalorg/richfaces/renderkit/html/images/spacer.gif"]{
+                display: none;
+            }
+
+            .section-title {
+                line-height: 30px;
+                
+                font-size: 13px;
+                padding-left: 5px;
+                color: white;
+                font-weight: bold;
+
+                margin-bottom: 10px;
+            }
+
+            #section-title-1 {
+                background-color: #FF6600;
+            }
+
+            #section-title-2 {
+                background-color: #4930AD;
+            }
+
+            .rich-tabpanel-content {
+                border: 0px !important;
+            }
+
+            .custPopup{
+                background-color: white;
+                border-width: 2px;
+                border-style: solid;
+                z-index: 9999;
+                left: 50%;
+                padding:10px;
+                position: absolute;
+                width: 500px;
+                margin-left: -250px;
+                top:100px;
+            }
+            .popupBackground{
+                background-color:black;
+                opacity: 0.20;
+                filter: alpha(opacity = 20);
+                position: absolute;
+                width: 100%;
+                height: 100%;
+                top: 0;
+                left: 0;
+                z-index: 9998;
+            }
+
+            .bPageBlock .detailList .labelCol {
+                width: 10%;
+            }
+
+            .bPageBlock .detailList .dataCol {
+                width: 15%;
+            }
+
+            .btn {
+                background-color: #0070D2;
+            }
+
+            .show-popup_btn {
+                background: #0070D2 !important;
+                color: white !important;
+            }
+
+            </style>
+
+            <script type="text/javascript">
+                function popupwindow(){
+                    //var newwindow = window.open('/apex/CallReportDataComponentPage','Call Report');
+                    //newwindow.focus();
+                    alert('Thank you');
+                }
+            </script>
+
+            <meta charset="utf-8" />
+            <meta http-equiv="x-ua-compatible" content="ie=edge" />
+            <title>Mulodo Demo Lightning Design System</title>
+            <meta name="viewport" content="width=device-width, initial-scale=1" />
+            <!-- Import the Design System style sheet -->
+            <apex:slds />
+            </head>
+            <body>
+                <!-- REQUIRED SLDS WRAPPER -->
+                <div class="slds-scope">
+                    <div class="slds">
+                        <apex:pageBlock >
+                        <!-- PRIMARY CONTENT WRAPPER -->
+                        <div class="myapp">
+                            <!-- SECTION - BADGE COMPONENTS -->
+                            
+                            <div class="bPageTitle">
+                                <div class="ptBody">
+                                    <div class="content">
+                                        <apex:image id="theImage" value="/img/s.gif" styleClass="pageTitleIcon" alt="Account" title="Account"/>
+                                            <h1 class="pageType">&nbsp;<span class="titleSeparatingColon"></span></h1>
+                                            <h2 class="pageDescription">Account</h2>
+                                            <div class="blank">&nbsp;</div>
+                                        </div>
+                                        <div class="links">
+                                            <a href="#" title="Help for this Page (New Window)"><span class="helpLink">Help for this Page</span>
+                                            <apex:image value="/img/s.gif" styleClass="helpIcon" alt="helpIcon" title="helpIcon"/></a>
+                                        </div>
+                                    </div>
+                                    <div class="ptBreadcrumb"></div>
+                                </div>
+                                
+                                <apex:form >
+                                    <div class="bPageBlock brandSecondaryBrd bEditBlock secondaryPalette" id="ep">
+                                        <div class="pbHeader">
+                                            <table border="0" cellpadding="0" cellspacing="0">
+                                                <tbody>
+                                                    <tr>
+                                                        <td class="pbTitle">
+                                                            <img src="/img/s.gif" alt="" width="12" height="1" class="minWidth" style="margin-right: 0.25em;margin-right: 0.25em;" title=""/>
+                                                            <h2 class="mainTitle">Account</h2>
+                                                        </td>
+                                                        <td class="pbButton" id="topButtonRow">
+                                                            <apex:commandButton value="Show Pop up" action="{!showPopup}" rerender="tstpopup" id="show_popup" styleClass="show-popup_btn"/>
+                                                            <apex:outputPanel id="tstpopup">
+                                                            <apex:outputPanel styleClass="popupBackground" layout="block" rendered="{!displayPopUp}"/>
+                                                                <apex:outputPanel styleClass="custPopup" layout="block" rendered="{!displayPopUp}">
+                                                                    This is where I would put whatever information I needed to show to my end user.<br/><br/><br/>
+                                                                    <apex:commandButton value="Hide Pop up" action="{!closePopup}" rerender="tstpopup"/>
+                                                                </apex:outputPanel>
+                                                            </apex:outputPanel>
+
+                                                            <input value="Cancel" class="btn" name="cancel" title="Cancel" type="submit"/>
+                                                        </td>
+                                                    </tr>
+                                                </tbody>
+                                            </table>
+                                        </div>
+                                        <div style="width: 98%; padding: auto; margin: auto">
+                                            
+                                            <apex:tabPanel switchType="client" selectedTab="name1" id="AccountTabPanel" style="margin-top: 10px;" tabClass="activeTab" inactiveTabClass="inactiveTab">
+                                                <apex:tab label="Account1" name="name1" id="tabOne1">
+                                                        <div class="bPageBlock">
+                                                            <div class="pbHeader">
+                                                                <table border="0" cellpadding="0" cellspacing="0" width="100%">
+                                                                    <tbody>
+                                                                        <tr>
+                                                                            <td class="pbTitle">
+                                                                                <img class="minWidth" height="1" src="/img/s.gif" style="margin-right: 0.25em;margin-right: 0.25em;" width="12"/>
+                                                                                <h2><strong>Basic Information</strong></h2>
+                                                                            </td>
+                                                                            
+                                                                        </tr>
+                                                                    </tbody>
+                                                                </table>
+                                                            </div>
+
+                                                            <div class="main-content">
+                                                                <div class="section-1">
+                                                                    <div class="section-title" id="section-title-1">
+                                                                        <span>Account Information</span>
+                                                                    </div>
+
+                                                                     <div class="pbSubsection">
+
+                                                            <table class="detailList" border="0" cellpadding="0" cellspacing="0">
+                                                                <tbody>
+                                                                    <tr>
+                                                                        <td class="labelCol">
+                                                                            <label>Account Owner</label>
+                                                                        </td>
+                                                                        <td class="dataCol">Mulodo</td>
+                                                                        <td class="labelCol">
+                                                                            <label for="acc9">Rating</label>
+                                                                        </td>
+                                                                        <td class="dataCol">
+                                                                            <span>
+                                                                                <apex:selectList id="acc111" size="1">
+                                                                                        <apex:selectOption itemValue="red" itemLabel="--None--"/>
+                                                                                        <apex:selectOption itemValue="white" itemLabel="Hot"/>
+                                                                                        <apex:selectOption itemValue="blue" itemLabel="Warm"/>
+                                                                                </apex:selectList>
+                                                                            </span>
+                                                                        </td>
+
+                                                                        <td class="labelCol">
+                                                                            <label for="acc91">Rating</label>
+                                                                        </td>
+                                                                        <td class="dataCol">
+                                                                            <span>
+                                                                                <apex:selectList id="acc61s" size="1">
+                                                                                        <apex:selectOption itemValue="red" itemLabel="--None--"/>
+                                                                                        <apex:selectOption itemValue="white" itemLabel="Hot"/>
+                                                                                        <apex:selectOption itemValue="blue" itemLabel="Warm"/>
+                                                                                </apex:selectList>
+                                                                            </span>
+                                                                        </td>
+
+                                                                        <td class="labelCol">
+                                                                            <label for="acc92">Rating</label>
+                                                                        </td>
+                                                                        <td class="dataCol">
+                                                                            <span>
+                                                                                <apex:selectList id="acc612" size="1">
+                                                                                        <apex:selectOption itemValue="red" itemLabel="--None--"/>
+                                                                                        <apex:selectOption itemValue="white" itemLabel="Hot"/>
+                                                                                        <apex:selectOption itemValue="blue" itemLabel="Warm"/>
+                                                                                </apex:selectList>
+                                                                            </span>
+                                                                        </td>
+                                                                    </tr>
+                                                                    <tr>
+                                                                        <td class="labelCol requiredInput">
+                                                                            <label for="acc2"><span class="assistiveText">*</span>Account Name</label>
+                                                                        </td>
+                                                                        <td class="dataCol col02">
+                                                                            <div class="requiredInput">
+                                                                                <div class="requiredBlock"></div>
+                                                                                <apex:inputText id="acc2" maxlength="255" size="20" tabindex="1"/>
+                                                                            </div>
+                                                                        </td>
+                                                                        <td class="labelCol">
+                                                                            <label for="acc10">Phone</label>
+                                                                        </td>
+                                                                        <td class="dataCol">
+                                                                            <apex:inputText id="acc10" maxlength="40" size="20"/> 
+                                                                        </td>
+                                                                        <td class="labelCol">
+                                                                                    <label for="acc231">Account Site</label>
+                                                                                </td>
+                                                                                <td class="dataCol col02">
+                                                                                    <apex:inputText id="acc231" maxlength="80" size="20"/>
+                                                                            </td>
+                                                                        <td class="labelCol">
+                                                                                    <label for="acc232">Account Site</label>
+                                                                                </td>
+                                                                                <td class="dataCol col02">
+                                                                                    <apex:inputText id="acc232" maxlength="80" size="20"/>
+                                                                            </td>
+                                                                    </tr>
+                                                                    <tr>
+                                                                        <td class="labelCol"></td>
+                                                                    </tr>
+                                                                    <tr>
+                                                                        <td class="labelCol">
+                                                                            <label for="acc5">Account Number</label>
+                                                                        </td>
+                                                                            <td class="dataCol col02">
+                                                                                <apex:inputText id="acc5" maxlength="40" size="20"/>
+                                                                            </td>
+                                                                                <td class="labelCol">
+                                                                                    <label for="acc12">Website</label>
+                                                                                </td>
+                                                                                <td class="dataCol">
+                                                                                    <apex:inputText id="acc12" maxlength="40" size="20"/>
+                                                                                </td>
+                                                                                <td></td>
+                                                                                <td></td>
+                                                                                <td></td>
+                                                                                <td></td>
+                                                                        </tr>
+                                                                            <tr>
+                                                                                <td class="labelCol">
+                                                                                    <label for="acc23w">Account Site</label>
+                                                                                </td>
+                                                                                <td class="dataCol col02">
+                                                                                    <apex:inputText id="acc23w" maxlength="80" size="20"/>
+                                                                            </td>
+                                                                            <td class="labelCol">
+                                                                                <label for="acc13">Ticker Symbol</label>
+                                                                            </td>
+                                                                            <td class="dataCol">
+                                                                                <apex:inputText id="acc13" maxlength="40" size="20"/>
+                                                                            </td>
+                                                                            </tr>
+                                                                            <tr><td class="labelCol">
+                                                                                <label for="acc6">Type</label>
+                                                                            </td>
+                                                                            <td class="dataCol col02">
+                                                                                <span>
+                                                                                    <apex:selectList id="acc6" size="1">
+                                                                                        <apex:selectOption itemValue="red" itemLabel="--None--"/>
+                                                                                        <apex:selectOption itemValue="white" itemLabel="Prospect"/>
+                                                                                        <apex:selectOption itemValue="blue" itemLabel="Customer - Direct"/>
+                                                                                    </apex:selectList>
+                                                                            </span>
+                                                                        </td>
+                                                                        <td class="labelCol">
+                                                                            <label for="acc14">Ownership</label>
+                                                                        </td>
+                                                                        <td class="dataCol">
+                                                                            <span>
+                                                                                <apex:selectList id="acc14" size="1">
+                                                                                        <apex:selectOption itemValue="red" itemLabel="--None--"/>
+                                                                                        <apex:selectOption itemValue="white" itemLabel="Public"/>
+                                                                                        <apex:selectOption itemValue="blue" itemLabel="Private"/>
+                                                                                </apex:selectList>
+                                                                            </span>
+                                                                        </td></tr>
+                                                                        <tr><td class="labelCol">
+                                                                            <label for="acc7">Industry</label>
+                                                                        </td>
+                                                                        <td class="dataCol col02"><span>
+
+                                                                            <apex:selectList id="acc15" size="1">
+                                                                                        <apex:selectOption itemValue="red" itemLabel="--None--"/>
+                                                                                        <apex:selectOption itemValue="white" itemLabel="Agriculture"/>
+                                                                                        <apex:selectOption itemValue="white" itemLabel="Banking"/>
+                                                                                        <apex:selectOption itemValue="white" itemLabel="Biotechnology"/>
+                                                                                        <apex:selectOption itemValue="white" itemLabel="Chemicals"/>
+                                                                                        <apex:selectOption itemValue="white" itemLabel="Communications"/>
+                                                                                        <apex:selectOption itemValue="white" itemLabel="Banking"/>
+                                                                                        <apex:selectOption itemValue="white" itemLabel="Banking"/>
+                                                                                        <apex:selectOption itemValue="white" itemLabel="Banking"/>
+                                                                                        <apex:selectOption itemValue="white" itemLabel="Banking"/>
+                                                                                        <apex:selectOption itemValue="white" itemLabel="Banking"/>
+                                                                                        <apex:selectOption itemValue="white" itemLabel="Banking"/>
+                                                                            </apex:selectList>
+                                                                        </span>
+                                                                    </td>
+                                                                    <td class="labelCol">
+                                                                        <label for="acc15">Employees</label>
+                                                                    </td>
+                                                                    <td class="dataCol">
+                                                                        <apex:inputText id="acc151" maxlength="20" size="20"/>
+                                                                    </td>
+                                                                </tr>
+                                                                <tr>
+                                                                    <td class="labelCol">
+                                                                        <label for="acc8">Annual Revenue</label>
+                                                                    </td>
+                                                                    <td class="dataCol col02">
+                                                                        <input id="acc8" name="acc8" size="20" tabindex="7" type="text"/>
+                                                                    </td>
+                                                                    <td class="labelCol">
+                                                                        <label for="acc16">SIC Code</label>
+                                                                    </td>
+                                                                    <td class="dataCol">
+                                                                        <input id="acc16" maxlength="20" name="acc16" size="20" tabindex="16" type="text"/>
+                                                                    </td>
+                                                                </tr>
+                                                                <tr>
+                                                                    <td class="last labelCol">
+                                                                        <label for="00N7F00000BoAQ9">Match Billing Address</label>
+                                                                    </td>
+                                                                    <td class="dataCol last col02">
+
+                                                                        <apex:inputCheckbox />
+                                                                       
+                                                                    </td>
+                                                                    <td class="labelCol last empty">&nbsp;</td>
+                                                                    <td class="dataCol last empty">&nbsp;</td>
+                                                                </tr>
+
+                                                                
+                                                            </tbody>
+                                                        </table>
+                                                    </div>
+
+                                                                </div>
+                                                                <div class="section-2">
+                                                                    <div class="section-title" id="section-title-2">
+                                                                        <span>Address Information</span>
+                                                                    </div>
+
+                                                                    <div class="pbSubsection">
+
+                                                            <table class="detailList" border="0" cellpadding="0" cellspacing="0">
+                                                                <tbody>
+                                                                    <tr>
+                                                                        <td class="labelCol">
+                                                                            <label>Account Owner</label>
+                                                                        </td>
+                                                                        <td class="dataCol">Mulodo</td>
+                                                                        <td class="labelCol">
+                                                                            <label for="acc9">Rating</label>
+                                                                        </td>
+                                                                        <td class="dataCol">
+                                                                            <span>
+                                                                                <apex:selectList id="acc1112" size="1">
+                                                                                        <apex:selectOption itemValue="red" itemLabel="--None--"/>
+                                                                                        <apex:selectOption itemValue="white" itemLabel="Hot"/>
+                                                                                        <apex:selectOption itemValue="blue" itemLabel="Warm"/>
+                                                                                </apex:selectList>
+                                                                            </span>
+                                                                        </td>
+
+                                                                        <td class="labelCol">
+                                                                            <label for="acc91">Rating</label>
+                                                                        </td>
+                                                                        <td class="dataCol">
+                                                                            <span>
+                                                                                <apex:selectList id="acc61s3" size="1">
+                                                                                        <apex:selectOption itemValue="red" itemLabel="--None--"/>
+                                                                                        <apex:selectOption itemValue="white" itemLabel="Hot"/>
+                                                                                        <apex:selectOption itemValue="blue" itemLabel="Warm"/>
+                                                                                </apex:selectList>
+                                                                            </span>
+                                                                        </td>
+
+                                                                        <td class="labelCol">
+                                                                            <label for="acc92">Rating</label>
+                                                                        </td>
+                                                                        <td class="dataCol">
+                                                                            <span>
+                                                                                <apex:selectList id="acc6123" size="1">
+                                                                                        <apex:selectOption itemValue="red" itemLabel="--None--"/>
+                                                                                        <apex:selectOption itemValue="white" itemLabel="Hot"/>
+                                                                                        <apex:selectOption itemValue="blue" itemLabel="Warm"/>
+                                                                                </apex:selectList>
+                                                                            </span>
+                                                                        </td>
+                                                                    </tr>
+                                                                    <tr>
+                                                                        <td class="labelCol requiredInput">
+                                                                            <label for="acc2"><span class="assistiveText">*</span>Account Name</label>
+                                                                        </td>
+                                                                        <td class="dataCol col02">
+                                                                            <div class="requiredInput">
+                                                                                <div class="requiredBlock"></div>
+                                                                                <apex:inputText id="acc23q" maxlength="255" size="20" tabindex="1"/>
+                                                                            </div>
+                                                                        </td>
+                                                                        <td class="labelCol">
+                                                                            <label for="acc10">Phone</label>
+                                                                        </td>
+                                                                        <td class="dataCol">
+                                                                            <apex:inputText id="acc101" maxlength="40" size="20"/> 
+                                                                        </td>
+                                                                        <td class="labelCol">
+                                                                                    <label for="acc231">Account Site</label>
+                                                                                </td>
+                                                                                <td class="dataCol col02">
+                                                                                    <apex:inputText id="acc2312" maxlength="80" size="20"/>
+                                                                            </td>
+                                                                        <td class="labelCol">
+                                                                                    <label for="acc23s2">Account Site</label>
+                                                                                </td>
+                                                                                <td class="dataCol col02">
+                                                                                    <apex:inputText id="acc2322" maxlength="80" size="20"/>
+                                                                            </td>
+                                                                    </tr>
+                                                                    <tr>
+                                                                        <td class="labelCol"></td>
+                                                                    </tr>
+                                                                    <tr>
+                                                                        <td class="labelCol">
+                                                                            <label for="acc5">Account Number</label>
+                                                                        </td>
+                                                                            <td class="dataCol col02">
+                                                                                <apex:inputText id="acc52" maxlength="40" size="20"/>
+                                                                            </td>
+                                                                                <td class="labelCol">
+                                                                                    <label for="acc122">Website</label>
+                                                                                </td>
+                                                                                <td class="dataCol">
+                                                                                    <apex:inputText id="acc122" maxlength="40" size="20"/>
+                                                                                </td>
+                                                                                <td></td>
+                                                                                <td></td>
+                                                                                <td></td>
+                                                                                <td></td>
+                                                                        </tr>
+                                                                            <tr>
+                                                                                <td class="labelCol">
+                                                                                    <label for="acc23">Account Site</label>
+                                                                                </td>
+                                                                                <td class="dataCol col02">
+                                                                                    <apex:inputText id="acc232e" maxlength="80" size="20"/>
+                                                                            </td>
+                                                                            <td class="labelCol">
+                                                                                <label for="acc13">Ticker Symbol</label>
+                                                                            </td>
+                                                                            <td class="dataCol">
+                                                                                <apex:inputText id="acc123" maxlength="40" size="20"/>
+                                                                            </td>
+                                                                            </tr>
+                                                                            <tr><td class="labelCol">
+                                                                                <label for="acc6">Type</label>
+                                                                            </td>
+                                                                            <td class="dataCol col02">
+                                                                                <span>
+                                                                                    <apex:selectList id="acc62" size="1">
+                                                                                        <apex:selectOption itemValue="red" itemLabel="--None--"/>
+                                                                                        <apex:selectOption itemValue="white" itemLabel="Prospect"/>
+                                                                                        <apex:selectOption itemValue="blue" itemLabel="Customer - Direct"/>
+                                                                                    </apex:selectList>
+                                                                            </span>
+                                                                        </td>
+                                                                        <td class="labelCol">
+                                                                            <label for="acc14">Ownership</label>
+                                                                        </td>
+                                                                        <td class="dataCol">
+                                                                            <span>
+                                                                                <apex:selectList id="acc142" size="1">
+                                                                                        <apex:selectOption itemValue="red" itemLabel="--None--"/>
+                                                                                        <apex:selectOption itemValue="white" itemLabel="Public"/>
+                                                                                        <apex:selectOption itemValue="blue" itemLabel="Private"/>
+                                                                                </apex:selectList>
+                                                                            </span>
+                                                                        </td></tr>
+                                                                        <tr><td class="labelCol">
+                                                                            <label for="acc7">Industry</label>
+                                                                        </td>
+                                                                        <td class="dataCol col02"><span>
+
+                                                                            <apex:selectList id="acc152" size="1">
+                                                                                        <apex:selectOption itemValue="red" itemLabel="--None--"/>
+                                                                                        <apex:selectOption itemValue="white" itemLabel="Agriculture"/>
+                                                                                        <apex:selectOption itemValue="white" itemLabel="Banking"/>
+                                                                                        <apex:selectOption itemValue="white" itemLabel="Biotechnology"/>
+                                                                                        <apex:selectOption itemValue="white" itemLabel="Chemicals"/>
+                                                                                        <apex:selectOption itemValue="white" itemLabel="Communications"/>
+                                                                                        <apex:selectOption itemValue="white" itemLabel="Banking"/>
+                                                                                        <apex:selectOption itemValue="white" itemLabel="Banking"/>
+                                                                                        <apex:selectOption itemValue="white" itemLabel="Banking"/>
+                                                                                        <apex:selectOption itemValue="white" itemLabel="Banking"/>
+                                                                                        <apex:selectOption itemValue="white" itemLabel="Banking"/>
+                                                                                        <apex:selectOption itemValue="white" itemLabel="Banking"/>
+                                                                            </apex:selectList>
+                                                                        </span>
+                                                                    </td>
+                                                                    <td class="labelCol">
+                                                                        <label for="acc15">Employees</label>
+                                                                    </td>
+                                                                    <td class="dataCol">
+                                                                        <apex:inputText id="acc1512" maxlength="20" size="20"/>
+                                                                    </td>
+                                                                </tr>
+                                                                <tr>
+                                                                    <td class="labelCol">
+                                                                        <label for="acc8">Annual Revenue</label>
+                                                                    </td>
+                                                                    <td class="dataCol col02">
+                                                                        <input id="acc82" name="acc8" size="20" tabindex="7" type="text"/>
+                                                                    </td>
+                                                                    <td class="labelCol">
+                                                                        <label for="acc16">SIC Code</label>
+                                                                    </td>
+                                                                    <td class="dataCol">
+                                                                        <input id="acc126" maxlength="20" name="acc16" size="20" tabindex="16" type="text"/>
+                                                                    </td>
+                                                                </tr>
+                                                                <tr>
+                                                                    <td class="last labelCol">
+                                                                        <label for="00N7F00000BoAQ9">Match Billing Address</label>
+                                                                    </td>
+                                                                    <td class="dataCol last col02">
+
+                                                                        <apex:inputCheckbox />
+                                                                       
+                                                                    </td>
+                                                                    <td class="labelCol last empty">&nbsp;</td>
+                                                                    <td class="dataCol last empty">&nbsp;</td>
+                                                                </tr>
+
+                                                                
+                                                            </tbody>
+                                                        </table>
+                                                    </div>
+                                                                </div>
+                                                            </div>
+
+                                                        </div>
+                                                </apex:tab>
+                                            <apex:tab label="Account2" name="name2" id="tabTwo">content for tab two</apex:tab>
+                                        <apex:tab label="Contact" name="name3" id="tabThree">content for tab three</apex:tab>
+                                    <apex:tab label="Opt & Case" name="name4" id="tabFour">content for tab four</apex:tab>
+                                </apex:tabPanel>
+                            </div>
+                            <div class="pbBottomButtons">
+                                <table border="0" cellpadding="0" cellspacing="0">
+                                    <tbody>
+                                        <tr>
+                                            <td class="pbTitle">
+                                                <img src="/img/s.gif" alt="" width="12" height="1" class="minWidth" style="margin-right: 0.25em;margin-right: 0.25em;" title=""/>&nbsp;
+                                            </td>
+                                            <td class="pbButtonb" id="bottomButtonRow">
+                                                <apex:commandButton value="Show Pop up" action="{!showPopup}" rerender="tstpopup" id="show_popup1" styleClass="show-popup_btn"/>
+                                                <input value="Cancel" class="btn" name="cancel" tabindex="37" title="Cancel" type="submit"/>
+                                            </td>
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                            <div class="pbFooter secondaryPalette">
+                                <div class="bg">
+                                    
+                                </div>
+                            </div>
+                        </div></apex:form>
+                        <!-- / SECTION - BADGE COMPONENTS -->
+                    </div>
+                    <!-- / PRIMARY CONTENT WRAPPER -->
+
+                </apex:pageBlock>
+                </div>
+                <!-- / REQUIRED SLDS WRAPPER -->
+            </div>
+        </body>
+    </html>
+</apex:page>
