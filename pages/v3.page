@@ -1,7 +1,0 @@
-<apex:page controller="v3Controller">
-<apex:pageBlock title="List Contact V3">
-    <apex:pageBlockTable value="{!contacts}" var="contact">
-        <apex:column value="{!contact.Name}"/>
-    </apex:pageBlockTable>
-</apex:pageBlock>
-</apex:page>
