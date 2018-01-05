@@ -10,6 +10,7 @@
                 <style type="text/css">
                 .bPageBlock {
                 border-top: 3px solid purple !important;
+                border-radius: 3px 3px 0px 0px;
                 }
                 .slds-box {
                 margin: 0;
