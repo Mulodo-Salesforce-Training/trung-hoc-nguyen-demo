@@ -1,0 +1,572 @@
+<apex:page showHeader="false" standardStylesheets="false" sidebar="false" applyHtmlTag="false" applyBodyTag="false" docType="html-5.0">
+    <html xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" lang="en">
+        <head>
+            <meta charset="utf-8" />
+            <meta http-equiv="x-ua-compatible" content="ie=edge" />
+            <title>Salesforce Lightning Design System Trailhead Module</title>
+            <meta name="viewport" content="width=device-width, initial-scale=1" />
+            <!-- Import the Design System style sheet -->
+            <apex:slds />
+                <style type="text/css">
+                .bPageBlock {
+                border-top: 3px solid purple !important;
+                }
+                .slds-box {
+                margin: 0;
+                padding: 0 !important;
+                }
+                .main-content {
+                width: 98%;
+                margin: auto;
+                padding: auto;
+                }
+                .block-content {
+                width: 98%;
+                margin: auto;
+                padding: auto;
+                }
+                .htitle {
+                line-height: 30px;
+                color: white;
+                }
+                #htitle-1 {
+                background-color: #FF6600;
+                }
+                #htitle-2 {
+                background-color: #4930AD;
+                }
+                .labelCol {
+                width: 10%;
+                }
+                .requiredInput {
+                position: relative;
+                height: 100%;
+                }
+                .bPageBlock .requiredInput .requiredBlock {
+                background-color: #c00;
+                position: absolute;
+                left: -4px;
+                width: 3px;
+                top: 1px;
+                bottom: 1px;
+                }
+                </style>
+            </head>
+            <body>
+                <!-- REQUIRED SLDS WRAPPER -->
+                <div class="slds-scope">
+                    <!-- PRIMARY CONTENT WRAPPER -->
+                    <!-- HEADING AREA -->
+                    <div class="slds-media slds-no-space slds-grow">
+                        <div class="slds-media__figure">
+                            <span class="slds-avatar slds-avatar--medium">
+                                <img src="{!URLFOR($Asset.SLDS, 'assets/images/avatar1.jpg')}" alt="" />
+                            </span>
+                        </div>
+                        <div class="slds-media__body">
+                            <p class="slds-text-title--caps slds-line-height--reset">Accounts</p>
+                            <h1 class="slds-page-header__title slds-m-right--small slds-align-middle slds-truncate" title="My Accounts">My Accounts</h1>
+                        </div>
+                    </div>
+                    <!-- / HEADING AREA -->
+                    <div class="myapp">
+                        <apex:form>
+                            <div class="bPageBlock brandSecondaryBrd bEditBlock secondaryPalette slds-box">
+                                <div class="pHeader slds-border_bottom">
+                                    <table class="slds-table slds-table_cell-buffer">
+                                        <thead>
+                                            <tr class="slds-text-title_caps">
+                                                <th scope="col">
+                                                    <div class="slds-truncate" title="Opportunity Name"><h2><strong>Account</strong></h2></div>
+                                                </th>
+                                                <th scope="col">
+                                                    <div class="slds-truncate" title="Account Name">
+                                                        <button class="slds-button slds-button_brand">Save</button>
+                                                        <button class="slds-button slds-button_brand">Cancel</button>
+                                                    </div>
+                                                </th>
+                                            </tr>
+                                        </thead>
+                                    </table>
+                                </div>
+                                <div class="main-content">
+                                    <div class="slds-tabs_default">
+                                        
+                                        <div id="tab-default-1" class="slds-tabs_default__content slds-show" role="tabpanel" aria-labelledby="tab-default-1__item">
+                                            <div class="slds-tabs_scoped">
+                                                <ul class="slds-tabs_scoped__nav" role="tablist">
+                                                    <li class="slds-tabs_scoped__item slds-is-active" title="Item One" role="presentation"><a class="slds-tabs_scoped__link" href="javascript:void(0);" role="tab" tabindex="0" aria-selected="true" aria-controls="tab-scoped-1" id="tab-scoped-1__item">Item One</a></li>
+                                                    <li class="slds-tabs_scoped__item" title="Item Two" role="presentation"><a class="slds-tabs_scoped__link" href="javascript:void(0);" role="tab" tabindex="-1" aria-selected="false" aria-controls="tab-scoped-2" id="tab-scoped-2__item">Item Two</a></li>
+                                                    <li class="slds-tabs_scoped__item" title="Item Three" role="presentation"><a class="slds-tabs_scoped__link" href="javascript:void(0);" role="tab" tabindex="-1" aria-selected="false" aria-controls="tab-scoped-3" id="tab-scoped-3__item">Item Three</a></li>
+                                                </ul>
+                                                <div id="tab-scoped-1" class="slds-show slds-border_left slds-border_right slds-border_bottom" role="tabpanel" aria-labelledby="tab-scoped-1__item">
+                                                    <div class="bPageBlock slds-border_bottom">
+                                                        <table class="slds-table slds-table_cell-buffer">
+                                                            <thead>
+                                                                <tr class="slds-text-title_caps">
+                                                                    <th scope="col">
+                                                                        <div class="slds-truncate" title="Opportunity Name"><h3><strong>Account Information</strong></h3></div>
+                                                                    </th>
+                                                                </tr>
+                                                            </thead>
+                                                        </table>
+                                                    </div>
+                                                    <div class="block-content">
+                                                        <div class="slds-grid slds-wrap slds-grid_pull-padded">
+                                                            <div class="slds-p-horizontal_small slds-size_1-of-1 slds-m-top_medium">
+                                                                <div class="htitle slds-p-left_medium" id="htitle-1">
+                                                                    <h3><strong>Account Information</strong></h3>
+                                                                </div>
+                                                                <div class="slds-grid slds-grid_align-spread">
+                                                                    <div>
+                                                                        <table class="slds-table  slds-table_cell-buffer">
+                                                                            <tbody>
+                                                                                <tr>
+                                                                                    <td data-label="Account Name">
+                                                                                        <div class="slds-truncate" title="Cloudhub"><label class="slds-form-element__label" for="text-input-id-1">Account Name :</label></div>
+                                                                                    </td>
+                                                                                    <td data-label="Close Date">
+                                                                                        <div class="requiredInput">
+                                                                                            <div class="requiredBlock"></div>
+                                                                                            <div class="slds-truncate" title="4/14/2015">
+                                                                                                
+                                                                                                <div class="slds-form-element">
+                                                                                                    
+                                                                                                    <div class="slds-form-element__control">
+                                                                                                        <input type="text" id="text-input-id-1" class="slds-input" placeholder="Placeholder Text" />
+                                                                                                    </div>
+                                                                                                </div>
+                                                                                            </div>
+                                                                                        </div>
+                                                                                    </td>
+                                                                                </tr>
+                                                                                <tr>
+                                                                                    <td data-label="Account Name">
+                                                                                        <div class="slds-truncate" title="Cloudhub">Account Options:</div>
+                                                                                    </td>
+                                                                                    <td data-label="Close Date">
+                                                                                        <div class="slds-truncate" title="4/14/2015">
+                                                                                            
+                                                                                            <div class="slds-form-element">
+                                                                                                <div class="slds-form-element__control">
+                                                                                                    <div class="slds-select_container">
+                                                                                                        <select class="slds-select" id="select-01" required="">
+                                                                                                            <option>Option One</option>
+                                                                                                            <option>Option Two</option>
+                                                                                                            <option>Option Three</option>
+                                                                                                        </select>
+                                                                                                    </div>
+                                                                                                </div>
+                                                                                            </div>
+                                                                                        </div>
+                                                                                    </td>
+                                                                                </tr>
+                                                                                <tr>
+                                                                                    <td data-label="Account Name">
+                                                                                        <div class="slds-truncate" title="Cloudhub">Cloudhub</div>
+                                                                                    </td>
+                                                                                    <td data-label="Close Date">
+                                                                                        <div class="slds-truncate" title="4/14/2015">
+                                                                                            
+                                                                                            <div class="slds-form-element">
+                                                                                                <div class="slds-form-element__control">
+                                                                                                    <span class="slds-checkbox">
+                                                                                                        <input type="checkbox" name="options" id="checkbox-2" value="on" />
+                                                                                                        <label class="slds-checkbox__label" for="checkbox-2">
+                                                                                                            <span class="slds-checkbox_faux"></span>
+                                                                                                            
+                                                                                                        </label>
+                                                                                                    </span>
+                                                                                                </div>
+                                                                                            </div>
+                                                                                        </div>
+                                                                                    </td>
+                                                                                </tr>
+                                                                                <tr>
+                                                                                    <td data-label="Account Name">
+                                                                                        <div class="slds-truncate" title="Cloudhub">Cloudhub</div>
+                                                                                    </td>
+                                                                                    <td data-label="Close Date">
+                                                                                        <div class="slds-truncate" title="4/14/2015">4/14/2015</div>
+                                                                                    </td>
+                                                                                </tr>
+                                                                            </tbody>
+                                                                        </table>
+                                                                    </div>
+                                                                    <div><table class="slds-table slds-table_cell-buffer">
+                                                                        <tbody>
+                                                                            <tr>
+                                                                                <td data-label="Account Name">
+                                                                                    <div class="slds-truncate" title="Cloudhub"><label class="slds-form-element__label" for="text-input-id-1">Account Name :</label></div>
+                                                                                </td>
+                                                                                <td data-label="Close Date">
+                                                                                    <div class="slds-truncate" title="4/14/2015">
+                                                                                        
+                                                                                        <div class="slds-form-element">
+                                                                                            
+                                                                                            <div class="slds-form-element__control">
+                                                                                                <input type="text" id="text-input-id-1" class="slds-input" placeholder="Placeholder Text" />
+                                                                                            </div>
+                                                                                        </div>
+                                                                                    </div>
+                                                                                </td>
+                                                                            </tr>
+                                                                            <tr>
+                                                                                <td data-label="Account Name">
+                                                                                    <div class="slds-truncate" title="Cloudhub">Cloudhub</div>
+                                                                                </td>
+                                                                                <td data-label="Close Date">
+                                                                                    <div class="slds-truncate" title="4/14/2015">4/14/2015</div>
+                                                                                </td>
+                                                                            </tr>
+                                                                            <tr>
+                                                                                <td data-label="Account Name">
+                                                                                    <div class="slds-truncate" title="Cloudhub">Cloudhub</div>
+                                                                                </td>
+                                                                                <td data-label="Close Date">
+                                                                                    <div class="slds-truncate" title="4/14/2015">4/14/2015</div>
+                                                                                </td>
+                                                                            </tr>
+                                                                            <tr>
+                                                                                <td data-label="Account Name">
+                                                                                    <div class="slds-truncate" title="Cloudhub">Cloudhub</div>
+                                                                                </td>
+                                                                                <td data-label="Close Date">
+                                                                                    <div class="slds-truncate" title="4/14/2015">4/14/2015</div>
+                                                                                </td>
+                                                                            </tr>
+                                                                        </tbody>
+                                                                    </table></div>
+                                                                    <div><table class="slds-table slds-table_cell-buffer">
+                                                                        <tbody>
+                                                                            <tr>
+                                                                                <td data-label="Account Name">
+                                                                                    <div class="slds-truncate" title="Cloudhub"><label class="slds-form-element__label" for="text-input-id-1">Account Name :</label></div>
+                                                                                </td>
+                                                                                <td data-label="Close Date">
+                                                                                    <div class="slds-truncate" title="4/14/2015">
+                                                                                        
+                                                                                        <div class="slds-form-element">
+                                                                                            
+                                                                                            <div class="slds-form-element__control">
+                                                                                                <input type="text" id="text-input-id-1" class="slds-input" placeholder="Placeholder Text" />
+                                                                                            </div>
+                                                                                        </div>
+                                                                                    </div>
+                                                                                </td>
+                                                                            </tr>
+                                                                            <tr>
+                                                                                <td data-label="Account Name">
+                                                                                    <div class="slds-truncate" title="Cloudhub">Cloudhub</div>
+                                                                                </td>
+                                                                                <td data-label="Close Date">
+                                                                                    <div class="slds-truncate" title="4/14/2015">4/14/2015</div>
+                                                                                </td>
+                                                                            </tr>
+                                                                            <tr>
+                                                                                <td data-label="Account Name">
+                                                                                    <div class="slds-truncate" title="Cloudhub">Cloudhub</div>
+                                                                                </td>
+                                                                                <td data-label="Close Date">
+                                                                                    <div class="slds-truncate" title="4/14/2015">4/14/2015</div>
+                                                                                </td>
+                                                                            </tr>
+                                                                            <tr>
+                                                                                <td data-label="Account Name">
+                                                                                    <div class="slds-truncate" title="Cloudhub">Cloudhub</div>
+                                                                                </td>
+                                                                                <td data-label="Close Date">
+                                                                                    <div class="slds-truncate" title="4/14/2015">4/14/2015</div>
+                                                                                </td>
+                                                                            </tr>
+                                                                        </tbody>
+                                                                    </table>
+                                                                </div>
+                                                                <div>
+                                                                    <table class="slds-table  slds-table_cell-buffer">
+                                                                        <tbody>
+                                                                            <tr>
+                                                                                <td data-label="Account Name">
+                                                                                    <div class="slds-truncate" title="Cloudhub"><label class="slds-form-element__label" for="text-input-id-1">Account Name :</label></div>
+                                                                                </td>
+                                                                                <td data-label="Close Date">
+                                                                                    <div class="slds-truncate" title="4/14/2015">
+                                                                                        
+                                                                                        <div class="slds-form-element">
+                                                                                            
+                                                                                            <div class="slds-form-element__control">
+                                                                                                <input type="text" id="text-input-id-1" class="slds-input" placeholder="Placeholder Text" />
+                                                                                            </div>
+                                                                                        </div>
+                                                                                    </div>
+                                                                                </td>
+                                                                            </tr>
+                                                                            <tr>
+                                                                                <td data-label="Account Name">
+                                                                                    <div class="slds-truncate" title="Cloudhub">Cloudhub</div>
+                                                                                </td>
+                                                                                <td data-label="Close Date">
+                                                                                    <div class="slds-truncate" title="4/14/2015">4/14/2015</div>
+                                                                                </td>
+                                                                            </tr>
+                                                                            <tr>
+                                                                                <td data-label="Account Name">
+                                                                                    <div class="slds-truncate" title="Cloudhub">Cloudhub</div>
+                                                                                </td>
+                                                                                <td data-label="Close Date">
+                                                                                    <div class="slds-truncate" title="4/14/2015">4/14/2015</div>
+                                                                                </td>
+                                                                            </tr>
+                                                                            <tr>
+                                                                                <td data-label="Account Name">
+                                                                                    <div class="slds-truncate" title="Cloudhub">Cloudhub</div>
+                                                                                </td>
+                                                                                <td data-label="Close Date">
+                                                                                    <div class="slds-truncate" title="4/14/2015">4/14/2015</div>
+                                                                                </td>
+                                                                            </tr>
+                                                                        </tbody>
+                                                                    </table>
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                        <div class="slds-p-horizontal_small slds-size_1-of-1 slds-m-top_medium">
+                                                            <div class="htitle slds-p-left_medium" id="htitle-2">
+                                                                <h3><strong>Address Information</strong></h3>
+                                                            </div>
+                                                            <div>
+                                                                <table class="slds-table slds-table_cell-buffer">
+                                                                    <tbody>
+                                                                        <tr>
+                                                                            <td class="labelCol">
+                                                                                <label for="acc8">Annual Revenue:</label>
+                                                                            </td>
+                                                                            <td class="dataCol">
+                                                                                <div class="slds-form-element">
+                                                                                    
+                                                                                    <div class="slds-form-element__control">
+                                                                                        <input type="text" id="text-input-id-1" class="slds-input" placeholder="Placeholder Text" size="20" maxlength="40" style="width: 250px" />
+                                                                                    </div>
+                                                                                </div>
+                                                                            </td>
+                                                                            <td class="labelCol">
+                                                                                <label for="acc16">SIC Code:</label>
+                                                                            </td>
+                                                                            <td class="dataCol">
+                                                                                <div class="requiredInput">
+                                                                                    <div class="requiredBlock"></div>
+                                                                                    <div class="slds-form-element">
+                                                                                        
+                                                                                        <div class="slds-form-element__control">
+                                                                                            <input type="text" id="text-input-id-1" class="slds-input" placeholder="Placeholder Text" size="20" maxlength="40" style="width: 250px" />
+                                                                                        </div>
+                                                                                    </div>
+                                                                                </div>
+                                                                            </td>
+                                                                        </tr>
+                                                                        <tr>
+                                                                            <td class="labelCol">
+                                                                                <label for="acc8">Annual Revenue:</label>
+                                                                            </td>
+                                                                            <td class="dataCol">
+                                                                                <div class="slds-form-element">
+                                                                                    
+                                                                                    <div class="slds-form-element__control">
+                                                                                        <input type="text" id="text-input-id-1" class="slds-input" placeholder="Placeholder Text" size="20" maxlength="40" style="width: 250px" />
+                                                                                    </div>
+                                                                                </div>
+                                                                            </td>
+                                                                            <td class="labelCol">
+                                                                                <label for="acc16">SIC Code:</label>
+                                                                            </td>
+                                                                            <td class="dataCol">
+                                                                                <div class="requiredInput">
+                                                                                    <div class="requiredBlock"></div>
+                                                                                    <div class="slds-form-element">
+                                                                                        
+                                                                                        <div class="slds-form-element__control">
+                                                                                            <input type="text" id="text-input-id-1" class="slds-input" placeholder="Placeholder Text" size="20" maxlength="40" style="width: 250px" />
+                                                                                        </div>
+                                                                                    </div>
+                                                                                </div>
+                                                                            </td>
+                                                                        </tr>
+                                                                        <tr>
+                                                                            <td class="labelCol">
+                                                                                <label for="acc8">Annual Revenue:</label>
+                                                                            </td>
+                                                                            <td class="dataCol">
+                                                                                <div class="slds-form-element">
+                                                                                    
+                                                                                    <div class="slds-form-element__control">
+                                                                                        <input type="text" id="text-input-id-1" class="slds-input" placeholder="Placeholder Text" size="20" maxlength="40" style="width: 250px" />
+                                                                                    </div>
+                                                                                </div>
+                                                                            </td>
+                                                                            <td class="labelCol">
+                                                                                <label for="acc16">SIC Code:</label>
+                                                                            </td>
+                                                                            <td class="dataCol">
+                                                                                <div class="requiredInput">
+                                                                                    <div class="requiredBlock"></div>
+                                                                                    <div class="slds-form-element">
+                                                                                        
+                                                                                        <div class="slds-form-element__control">
+                                                                                            <input type="text" id="text-input-id-1" class="slds-input" placeholder="Placeholder Text" size="20" maxlength="40" style="width: 250px" />
+                                                                                        </div>
+                                                                                    </div>
+                                                                                </div>
+                                                                            </td>
+                                                                        </tr>
+                                                                        <tr>
+                                                                            <td class="labelCol">
+                                                                                <label for="acc8">Annual Revenue:</label>
+                                                                            </td>
+                                                                            <td class="dataCol">
+                                                                                <div class="slds-form-element">
+                                                                                    
+                                                                                    <div class="slds-form-element__control">
+                                                                                        <input type="text" id="text-input-id-1" class="slds-input" placeholder="Placeholder Text" size="20" maxlength="40" style="width: 250px" />
+                                                                                    </div>
+                                                                                </div>
+                                                                            </td>
+                                                                            <td class="labelCol">
+                                                                                <label for="acc16">SIC Code:</label>
+                                                                            </td>
+                                                                            <td class="dataCol">
+                                                                                <div class="requiredInput">
+                                                                                    <div class="requiredBlock"></div>
+                                                                                    <div class="slds-form-element">
+                                                                                        
+                                                                                        <div class="slds-form-element__control">
+                                                                                            <input type="text" id="text-input-id-1" class="slds-input" placeholder="Placeholder Text" size="20" maxlength="40" style="width: 250px" />
+                                                                                        </div>
+                                                                                    </div>
+                                                                                </div>
+                                                                            </td>
+                                                                        </tr>
+                                                                        <tr>
+                                                                            <td class="labelCol">
+                                                                                <label for="acc8">Annual Revenue:</label>
+                                                                            </td>
+                                                                            <td class="dataCol">
+                                                                                <div class="slds-form-element">
+                                                                                    
+                                                                                    <div class="slds-form-element__control">
+                                                                                        <input type="text" id="text-input-id-1" class="slds-input" placeholder="Placeholder Text" size="20" maxlength="40" style="width: 250px" />
+                                                                                    </div>
+                                                                                </div>
+                                                                            </td>
+                                                                            <td class="labelCol">
+                                                                                <label for="acc16">SIC Code:</label>
+                                                                            </td>
+                                                                            <td class="dataCol">
+                                                                                <div class="requiredInput">
+                                                                                    <div class="requiredBlock"></div>
+                                                                                    <div class="slds-form-element">
+                                                                                        
+                                                                                        <div class="slds-form-element__control">
+                                                                                            <input type="text" id="text-input-id-1" class="slds-input" placeholder="Placeholder Text" size="20" maxlength="40" style="width: 250px" />
+                                                                                        </div>
+                                                                                    </div>
+                                                                                </div>
+                                                                            </td>
+                                                                        </tr>
+                                                                        <tr>
+                                                                            <td class="labelCol">
+                                                                                <label for="acc8">Annual Revenue:</label>
+                                                                            </td>
+                                                                            <td class="dataCol">
+                                                                                <div class="slds-form-element">
+                                                                                    
+                                                                                    <div class="slds-form-element__control">
+                                                                                        <input type="text" id="text-input-id-1" class="slds-input" placeholder="Placeholder Text" size="20" maxlength="40" style="width: 250px" />
+                                                                                    </div>
+                                                                                </div>
+                                                                            </td>
+                                                                            <td class="labelCol">
+                                                                                <label for="acc16">SIC Code:</label>
+                                                                            </td>
+                                                                            <td class="dataCol">
+                                                                                <div class="requiredInput">
+                                                                                    <div class="requiredBlock"></div>
+                                                                                    <div class="slds-form-element">
+                                                                                        
+                                                                                        <div class="slds-form-element__control">
+                                                                                            <input type="text" id="text-input-id-1" class="slds-input" placeholder="Placeholder Text" size="20" maxlength="40" style="width: 250px" />
+                                                                                        </div>
+                                                                                    </div>
+                                                                                </div>
+                                                                            </td>
+                                                                        </tr>
+                                                                        <tr>
+                                                                            <td class="labelCol">
+                                                                                <label for="acc8">Annual Revenue:</label>
+                                                                            </td>
+                                                                            <td class="dataCol">
+                                                                                <div class="slds-form-element">
+                                                                                    
+                                                                                    <div class="slds-form-element__control">
+                                                                                        <input type="text" id="text-input-id-1" class="slds-input" placeholder="Placeholder Text" size="20" maxlength="40" style="width: 250px" />
+                                                                                    </div>
+                                                                                </div>
+                                                                            </td>
+                                                                            <td class="labelCol">
+                                                                                <label for="acc16">SIC Code:</label>
+                                                                            </td>
+                                                                            <td class="dataCol">
+                                                                                <div class="requiredInput">
+                                                                                    <div class="requiredBlock"></div>
+                                                                                    <div class="slds-form-element">
+                                                                                        
+                                                                                        <div class="slds-form-element__control">
+                                                                                            <input type="text" id="text-input-id-1" class="slds-input" placeholder="Placeholder Text" size="20" maxlength="40" style="width: 250px" />
+                                                                                        </div>
+                                                                                    </div>
+                                                                                </div>
+                                                                            </td>
+                                                                        </tr>
+                                                                    </tbody>
+                                                                </table>
+                                                                
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            
+                                            <div id="tab-scoped-2" class="slds-tabs_scoped__content slds-hide" role="tabpanel" aria-labelledby="tab-scoped-2__item">Item Two Content</div>
+                                            <div id="tab-scoped-3" class="slds-tabs_scoped__content slds-hide" role="tabpanel" aria-labelledby="tab-scoped-3__item">Item Three Content</div>
+                                        </div>
+                                    </div>
+                                    <div id="tab-default-2" class="slds-tabs_default__content slds-hide" role="tabpanel" aria-labelledby="tab-default-2__item">Item Two Content</div>
+                                    <div id="tab-default-3" class="slds-tabs_default__content slds-hide" role="tabpanel" aria-labelledby="tab-default-3__item">Item Three Content</div>
+                                </div>
+                            </div>
+                            <div class="slds-border_top">
+                                <table class="slds-table slds-table_cell-buffer">
+                                    <thead>
+                                        <tr class="slds-text-title_caps">
+                                            <th scope="col" width="35%">
+                                                &nbsp;
+                                            </th>
+                                            <th scope="col">
+                                                <div class="slds-truncate" title="Account Name">
+                                                    <button class="slds-button slds-button_brand">Save</button>
+                                                    <button class="slds-button slds-button_brand">Cancel</button>
+                                                </div>
+                                            </th>
+                                        </tr>
+                                    </thead>
+                                </table>
+                            </div>
+                            
+                        </div>
+                    </apex:form>
+                </div>
+                <!-- / PRIMARY CONTENT WRAPPER -->
+            </div>
+            <!-- / REQUIRED SLDS WRAPPER -->
+        </body>
+    </html>
+</apex:page>
